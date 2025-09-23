@@ -178,7 +178,6 @@ export class HomePage {
         price: this.i18n.formatPrice(7800), 
         description: this.i18n.t('products.placematDesc'),
         image: product1Image,
-        originalPrice: this.i18n.formatPrice(2200),
         isFavorited: false
       }
     ];
