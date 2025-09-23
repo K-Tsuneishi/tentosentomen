@@ -1,5 +1,5 @@
 // Import logo image
-import logoImage from '../../assets/images/logo.jpg';
+import logoImage from '../../assets/images/logo.webp';
 import i18n from '../../i18n/i18n.js';
 
 export class Header {

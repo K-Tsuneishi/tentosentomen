@@ -1,11 +1,11 @@
 import { ProductCard } from '../components/ProductCard.js';
 import { NewsItem } from '../components/NewsItem.js';
 import { Newsletter } from '../components/Newsletter.js';
-import product1Image from '../../assets/images/product_1.jpg';
-import product2Image from '../../assets/images/product_2.jpg';
-import product3Image from '../../assets/images/product_3.jpg';
-import mainViewImage from '../../assets/images/main_view.jpg';
-import aboutProductImage from '../../assets/images/about_product.jpg';
+import product1Image from '../../assets/images/product_1.webp';
+import product2Image from '../../assets/images/product_2.webp';
+import product3Image from '../../assets/images/product_3.webp';
+import mainViewImage from '../../assets/images/main_view.webp';
+import aboutProductImage from '../../assets/images/about_product.webp';
 import i18n from '../../i18n/i18n.js';
 
 export class HomePage {
