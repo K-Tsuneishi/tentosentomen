@@ -1,0 +1,87 @@
+{
+  "common": {
+    "currency": "¥",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "close": "閉じる"
+  },
+  "header": {
+    "shop": "ショップ",
+    "about": "私たちについて",
+    "news": "お知らせ",
+    "contact": "お問い合わせ",
+    "cart": "カート",
+    "search": "検索",
+    "menu": "メニュー"
+  },
+  "hero": {
+    "title": "多様性がつくる あなたの \"好き\"",
+    "subtitle": "障がいの有無や時代の流れに左右されることなく、いつでも自分の\"好き\"を追い求めて欲しい",
+    "cta": "コレクションを見る"
+  },
+  "products": {
+    "popular": "人気商品",
+    "popularSubtitle": "みなさまに愛されている商品",
+    "viewDetails": "詳しく見る",
+    "addToCart": "カートに追加",
+    "new": "NEW",
+    "sale": "SALE",
+    "laFrance": "ラ・フランス",
+    "laFranceDesc": "洋梨の優雅な形を模したオブジェ",
+    "potHolder": "鍋つかみ座布団",
+    "potHolderDesc": "実用的でかわいい鍋つかみ",
+    "placemat": "ランチョンマット",
+    "placematDesc": "食卓を彩る手織りマット"
+  },
+  "about": {
+    "title": "作品について",
+    "line1": "刺し子が織りなす、新しいつながり。",
+    "line2": "「刺し子の温もりを、あなたの日常に。」",
+    "line3": "古くから伝わる刺し子。",
+    "line4": "ひと針ひと針に込められた想いが、時代を超え、新たなかたちでよみがえります。",
+    "line5": "私たちの作品は、すべて手作業による一点もの。",
+    "line6": "美しさと機能性を兼ね備え、生活に寄り添うデザインで、使うたびに人と人のつながりを育みます。",
+    "line7": "障がいの有無を超えて、すべての作品が新しい作品をつむぎ出します。",
+    "viewMore": "詳しく見る"
+  },
+  "news": {
+    "title": "お知らせ",
+    "viewAll": "すべてのお知らせを見る",
+    "event": "EVENT",
+    "new": "NEW",
+    "info": "INFO",
+    "news1Title": "3月13日から23日に東京原宿にてTCS25に出展いたしました。",
+    "news1Date": "2025.03.13",
+    "news2Title": "クラウドファンディングを始めました。",
+    "news2Date": "2025.02.28"
+  },
+  "newsletter": {
+    "title": "ニュースレター",
+    "subtitle": "最新情報とお得な情報をお届けします",
+    "placeholder": "メールアドレス",
+    "button": "登録する",
+    "success": "ご登録ありがとうございます！",
+    "error": "登録に失敗しました。もう一度お試しください。"
+  },
+  "footer": {
+    "shopping": "ショッピング",
+    "new": "新作",
+    "categories": "カテゴリー",
+    "gift": "ギフト",
+    "sale": "セール",
+    "support": "サポート",
+    "contactUs": "お問い合わせ",
+    "shipping": "配送について",
+    "returns": "返品・交換",
+    "sizeGuide": "サイズガイド",
+    "aboutUs": "私たちについて",
+    "brandStory": "ブランドストーリー",
+    "workshop": "ワークショップ",
+    "connect": "つながる",
+    "instagram": "Instagram",
+    "copyright": "© 2025 点と線と面 All rights reserved.",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "commerceLaw": "特定商取引法"
+  }
+}

@@ -1,0 +1,382 @@
+// Main SCSS file - Import all styles
+// =============================================================================
+
+// 1. Base styles (variables, reset, typography)
+// =============================================================================
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/typography';
+
+// 2. Utilities (mixins, animations)
+// =============================================================================
+@import 'utils/mixins';
+@import 'utils/animations';
+
+// 3. Components
+// =============================================================================
+@import 'components/button';
+@import 'components/form';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/product-card';
+@import 'components/news-item';
+@import 'components/newsletter';
+
+// 4. Layout components
+// =============================================================================
+// Future layout components would go here
+
+// 5. Pages
+// =============================================================================
+@import 'pages/home';
+@import 'pages/not-found';
+
+// 6. Global styles
+// =============================================================================
+
+// App container
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Main content area
+main {
+  flex: 1;
+}
+
+// Global utility classes
+.container {
+  @include container;
+}
+
+.section {
+  padding: $spacing-4xl 0;
+  
+  &--sm {
+    padding: $spacing-2xl 0;
+  }
+  
+  &--lg {
+    padding: $spacing-4xl 0;
+    
+    @include lg {
+      padding: 6rem 0;
+    }
+  }
+}
+
+// Text alignment utilities
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Spacing utilities
+.mb-0 { margin-bottom: 0; }
+.mb-xs { margin-bottom: $spacing-xs; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+.mb-2xl { margin-bottom: $spacing-2xl; }
+
+.mt-0 { margin-top: 0; }
+.mt-xs { margin-top: $spacing-xs; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+.mt-2xl { margin-top: $spacing-2xl; }
+
+// Display utilities
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+// Responsive display utilities
+@include sm {
+  .hidden-sm { display: none; }
+  .block-sm { display: block; }
+  .flex-sm { display: flex; }
+}
+
+@include md {
+  .hidden-md { display: none; }
+  .block-md { display: block; }
+  .flex-md { display: flex; }
+}
+
+@include lg {
+  .hidden-lg { display: none; }
+  .block-lg { display: block; }
+  .flex-lg { display: flex; }
+}
+
+// Flex utilities
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+// Grid utilities
+.gap-xs { gap: $spacing-xs; }
+.gap-sm { gap: $spacing-sm; }
+.gap-md { gap: $spacing-md; }
+.gap-lg { gap: $spacing-lg; }
+.gap-xl { gap: $spacing-xl; }
+.gap-2xl { gap: $spacing-2xl; }
+
+// Overflow utilities
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+// Position utilities
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+// Border radius utilities
+.rounded-sm {
+  border-radius: $border-radius-sm;
+}
+
+.rounded {
+  border-radius: $border-radius-md;
+}
+
+.rounded-lg {
+  border-radius: $border-radius-lg;
+}
+
+.rounded-full {
+  border-radius: $border-radius-full;
+}
+
+// Shadow utilities
+.shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+.shadow {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+// Notification styles (for global notifications)
+.notification {
+  position: fixed;
+  top: $spacing-xl;
+  right: $spacing-xl;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+  z-index: $z-index-toast;
+  animation: slide-in-right 0.3s $transition-ease;
+  
+  &--info {
+    background-color: $color-amber-100;
+    color: $color-amber-700;
+    border: 1px solid rgba($color-amber-700, 0.2);
+  }
+  
+  &--success {
+    background-color: $color-green-100;
+    color: $color-green-700;
+    border: 1px solid rgba($color-green-700, 0.2);
+  }
+  
+  &--error {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid rgba(#DC2626, 0.2);
+  }
+}
+
+// Loading overlay
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba($color-white, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-index-modal;
+  
+  &__spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid $color-gray-200;
+    border-top-color: $color-amber-600;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+// Backdrop blur utility
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+}
+
+// Screen reader only utility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Focus utilities
+.focus-ring {
+  @include focus-ring;
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 2px;
+  }
+  
+  .input,
+  .textarea,
+  .select {
+    border-width: 2px;
+  }
+}
+
+// Print styles
+@media print {
+  .header,
+  .footer,
+  .newsletter,
+  .btn {
+    display: none !important;
+  }
+  
+  .hero-section {
+    height: auto;
+    margin-top: 0;
+    
+    &__background {
+      display: none;
+    }
+    
+    &__content {
+      position: static;
+    }
+  }
+  
+  * {
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+}

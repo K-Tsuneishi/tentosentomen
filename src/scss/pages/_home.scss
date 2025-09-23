@@ -1,0 +1,336 @@
+// HomePage Styles
+.home-page {
+  min-height: 100vh;
+  background-color: $color-ivory;
+}
+
+// Hero Section
+.hero-section {
+  position: relative;
+  height: 70vh;
+  margin-top: 4rem; // Account for fixed header
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  @include lg {
+    height: 100vh;
+    margin-top: 5rem;
+  }
+  
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+  
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba($color-amber-50, 0.6) 0%,
+      transparent 100%
+    );
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  
+  &__container {
+    @include container;
+    text-align: center;
+    color: $color-warm-gray;
+  }
+  
+  &__title {
+    font-size: clamp($font-size-3xl, 5vw, $font-size-5xl);
+    font-weight: $font-medium;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-lg;
+    
+    br {
+      display: none;
+      
+      @include md {
+        display: block;
+      }
+    }
+  }
+  
+  &__subtitle {
+    font-size: clamp($font-size-lg, 2vw, $font-size-xl);
+    font-weight: $font-medium;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    margin-bottom: $spacing-xl;
+    line-height: 1.6;
+  }
+  
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    box-shadow: $shadow-md;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewport='0 0 32 32' style='fill:black;font-size:20px;'><text y='70%'>🐾</text></svg>") 16 16, pointer;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+      
+      svg {
+        transform: translateX(2px);
+      }
+    }
+    
+    svg {
+      transition: transform $transition-base $transition-ease;
+    }
+  }
+}
+
+// Popular Products Section
+.popular-products {
+  padding: $spacing-4xl 0;
+  background-color: $color-warm-beige;
+  
+  &__container {
+    @include container;
+  }
+  
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
+  
+  &__title {
+    font-size: clamp($font-size-2xl, 3vw, $font-size-3xl);
+    font-weight: $font-medium;
+    color: $color-warm-gray;
+    margin-bottom: $spacing-md;
+    letter-spacing: 0.05em;
+  }
+  
+  &__subtitle {
+    color: $color-gray-600;
+    font-weight: $font-light;
+  }
+  
+  &__grid {
+    @extend .product-scroll;
+    
+    @include lg {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-2xl;
+      justify-items: center;
+    }
+  }
+}
+
+// Brand Story Section
+.brand-story {
+  padding: $spacing-4xl 0;
+  background-color: $color-soft-pink;
+  
+  &__container {
+    @include container;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+    align-items: center;
+    
+    @include lg {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-4xl;
+    }
+  }
+  
+  &__image {
+    order: 2;
+    
+    @include lg {
+      order: 1;
+    }
+  }
+  
+  &__img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+  }
+  
+  &__content {
+    order: 1;
+    
+    @include lg {
+      order: 2;
+    }
+  }
+  
+  &__title {
+    font-size: clamp($font-size-2xl, 3vw, $font-size-3xl);
+    font-weight: $font-medium;
+    color: $color-warm-gray;
+    margin-bottom: $spacing-lg;
+    letter-spacing: 0.05em;
+  }
+  
+  &__text {
+    color: $color-gray-700;
+    font-weight: $font-light;
+    line-height: 1.7;
+    margin-bottom: $spacing-lg;
+    
+    &:last-of-type {
+      margin-bottom: $spacing-xl;
+    }
+  }
+  
+  &__link {
+    color: $color-amber-700;
+    font-weight: $font-normal;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    transition: all $transition-base $transition-ease;
+    
+    &:hover {
+      color: $color-amber-800;
+      gap: $spacing-md;
+    }
+    
+    svg {
+      transition: transform $transition-base $transition-ease;
+    }
+    
+    &:hover svg {
+      transform: translateX(2px);
+    }
+  }
+}
+
+// News Section
+.news-section {
+  padding: $spacing-4xl 0;
+  background-color: $color-white;
+  
+  &__container {
+    @include container;
+  }
+}
+
+// Responsive adjustments
+@include sm {
+  .hero-section {
+    &__container {
+      text-align: center;
+    }
+  }
+  
+  .popular-products {
+    &__grid {
+      padding-left: $spacing-lg;
+      padding-right: $spacing-lg;
+    }
+  }
+}
+
+@include md {
+  .brand-story {
+    &__content {
+      text-align: left;
+    }
+  }
+}
+
+// Animation classes for scroll reveals
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s $transition-ease both;
+}
+
+// Smooth reveal animations
+.hero-section__title,
+.hero-section__subtitle,
+.hero-section__cta {
+  opacity: 0;
+  animation: gentle-fade 0.8s $transition-ease both;
+  
+  &:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  
+  &:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  
+  &:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+}
+
+// Loading states
+.popular-products--loading {
+  .popular-products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-xl;
+    
+    .product-card-skeleton {
+      display: block;
+    }
+  }
+}
+
+.news-section--loading {
+  .news-list__items {
+    .news-item-skeleton {
+      display: flex;
+    }
+  }
+}
+
+// Dark mode support (future enhancement)
+@media (prefers-color-scheme: dark) {
+  .home-page {
+    // Dark mode styles would go here
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .hero-section__title,
+  .hero-section__subtitle,
+  .hero-section__cta {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .animate-fade-in-up {
+    animation: none;
+  }
+  
+  .hero-section__cta {
+    &:hover {
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,246 @@
+// Not Found Page Styles
+// =============================================================================
+
+.not-found-page {
+  // Layout
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: $spacing-2xl 0;
+  background: linear-gradient(135deg, $color-white 0%, $color-amber-50 100%);
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  // Error code styling
+  &__error-code {
+    font-size: 6rem;
+    font-weight: 700;
+    color: $color-amber-600;
+    margin-bottom: $spacing-lg;
+    line-height: 1;
+    
+    @include md {
+      font-size: 8rem;
+    }
+  }
+
+  // Title styling
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: 600;
+    color: $color-gray-700;
+    margin-bottom: $spacing-md;
+    
+    @include md {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  // Description styling
+  &__description {
+    font-size: $font-size-lg;
+    color: $color-gray-600;
+    margin-bottom: $spacing-2xl;
+    line-height: 1.6;
+  }
+
+  // Action buttons
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-2xl;
+    
+    @include sm {
+      flex-direction: row;
+      justify-content: center;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    
+    svg {
+      transition: transform 0.2s $transition-ease;
+    }
+    
+    &:hover svg {
+      transform: translateX(2px);
+    }
+  }
+
+  &__back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    
+    svg {
+      transition: transform 0.2s $transition-ease;
+    }
+    
+    &:hover svg {
+      transform: translateX(-2px);
+    }
+  }
+
+  // Suggestions section
+  &__suggestions {
+    border-top: 1px solid $color-gray-200;
+    padding-top: $spacing-xl;
+  }
+
+  &__suggestions-title {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $color-gray-700;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+    
+    @include sm {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__suggestion-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-lg;
+    border: 1px solid $color-gray-200;
+    border-radius: $border-radius-lg;
+    background-color: $color-white;
+    color: $color-gray-700;
+    text-decoration: none;
+    transition: all 0.2s $transition-ease;
+    
+    &:hover {
+      background-color: $color-amber-50;
+      border-color: $color-amber-200;
+      color: $color-amber-700;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+    
+    svg {
+      color: $color-amber-600;
+      transition: transform 0.2s $transition-ease;
+    }
+    
+    &:hover svg {
+      transform: scale(1.1);
+    }
+    
+    span {
+      font-size: $font-size-sm;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  // Responsive adjustments
+  @include sm {
+    padding: $spacing-3xl 0;
+  }
+
+  @include md {
+    padding: $spacing-4xl 0;
+  }
+
+  // Animation for entrance
+  &__content {
+    animation: fade-in-up 0.6s $transition-ease;
+  }
+
+  &__suggestions-grid {
+    animation: fade-in-up 0.8s $transition-ease 0.2s both;
+  }
+}
+
+// Animation keyframes
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Dark mode support (if needed in the future)
+@media (prefers-color-scheme: dark) {
+  .not-found-page {
+    background: linear-gradient(135deg, $color-gray-700 0%, $color-gray-600 100%);
+    
+    &__error-code {
+      color: $color-amber-300;
+    }
+    
+    &__title {
+      color: $color-white;
+    }
+    
+    &__description {
+      color: $color-gray-400;
+    }
+    
+    &__suggestions {
+      border-top-color: $color-gray-700;
+    }
+    
+    &__suggestions-title {
+      color: $color-white;
+    }
+    
+    &__suggestion-link {
+      background-color: $color-gray-600;
+      border-color: $color-gray-700;
+      color: $color-gray-400;
+      
+      &:hover {
+        background-color: $color-gray-700;
+        border-color: $color-amber-600;
+        color: $color-amber-300;
+      }
+      
+      svg {
+        color: $color-amber-300;
+      }
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .not-found-page {
+    background: none !important;
+    
+    &__suggestions {
+      display: none;
+    }
+    
+    &__actions {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,228 @@
+// NewsItem Component Styles
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: $spacing-lg $spacing-md;
+  margin: 0 (-$spacing-md);
+  border-bottom: 1px solid $color-gray-200;
+  cursor: pointer;
+  transition: all $transition-base $transition-ease;
+  border-radius: $border-radius-md;
+  
+  &:hover {
+    background-color: rgba($color-warm-beige, 0.3);
+    transform: translateX(4px);
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &--hovered {
+    .news-item__arrow {
+      color: $color-amber-700;
+      transform: translateX(4px);
+    }
+  }
+  
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-sm;
+    flex-wrap: wrap;
+  }
+  
+  &__date {
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    font-weight: $font-light;
+    white-space: nowrap;
+  }
+  
+  &__tag {
+    font-size: $font-size-xs;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-full;
+    font-weight: $font-medium;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    
+    &--new {
+      background-color: $color-amber-100;
+      color: $color-amber-700;
+    }
+    
+    &--event {
+      background-color: $color-green-100;
+      color: $color-green-700;
+    }
+    
+    &--info {
+      background-color: $color-gray-100;
+      color: $color-gray-600;
+    }
+    
+    &--sale {
+      background-color: #FEE2E2;
+      color: #DC2626;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-normal;
+    color: $color-warm-gray;
+    line-height: 1.5;
+    margin: 0;
+    transition: color $transition-base $transition-ease;
+    
+    .news-item:hover & {
+      color: $color-amber-700;
+    }
+  }
+  
+  &__arrow {
+    color: $color-gray-400;
+    margin-top: 2px;
+    margin-left: $spacing-md;
+    transition: all $transition-base $transition-ease;
+    flex-shrink: 0;
+  }
+}
+
+// News list container
+.news-list {
+  max-width: 48rem;
+  margin: 0 auto;
+  
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
+  
+  &__title {
+    font-size: clamp($font-size-2xl, 3vw, $font-size-3xl);
+    font-weight: $font-medium;
+    color: $color-warm-gray;
+    margin-bottom: $spacing-md;
+    letter-spacing: 0.05em;
+  }
+  
+  &__subtitle {
+    color: $color-gray-600;
+    font-weight: $font-light;
+  }
+  
+  &__items {
+    background-color: $color-white;
+    border-radius: $border-radius-lg;
+    padding: $spacing-md 0;
+    box-shadow: $shadow-sm;
+  }
+  
+  &__footer {
+    text-align: center;
+    margin-top: $spacing-2xl;
+  }
+  
+  &__view-all {
+    color: $color-amber-700;
+    font-weight: $font-normal;
+    text-decoration: none;
+    transition: color $transition-base $transition-ease;
+    
+    &:hover {
+      color: $color-amber-800;
+    }
+    
+    &::after {
+      content: ' →';
+      margin-left: $spacing-xs;
+    }
+  }
+}
+
+// Responsive adjustments
+@include sm {
+  .news-item {
+    padding: $spacing-xl $spacing-lg;
+    margin: 0 (-$spacing-lg);
+    
+    &__meta {
+      gap: $spacing-lg;
+    }
+    
+    &__arrow {
+      margin-left: $spacing-lg;
+    }
+  }
+}
+
+// Loading skeleton for news items
+.news-item-skeleton {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: $spacing-lg $spacing-md;
+  margin: 0 (-$spacing-md);
+  border-bottom: 1px solid $color-gray-200;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__date {
+    @extend .skeleton;
+    height: 14px;
+    width: 80px;
+  }
+  
+  &__tag {
+    @extend .skeleton;
+    height: 20px;
+    width: 50px;
+    border-radius: $border-radius-full;
+  }
+  
+  &__title {
+    @extend .skeleton;
+    height: 20px;
+    width: 85%;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__title-line2 {
+    @extend .skeleton;
+    height: 20px;
+    width: 60%;
+  }
+  
+  &__arrow {
+    @extend .skeleton;
+    width: 20px;
+    height: 20px;
+    border-radius: $border-radius-sm;
+    margin-left: $spacing-md;
+    margin-top: 2px;
+  }
+}

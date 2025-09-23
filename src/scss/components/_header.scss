@@ -1,0 +1,312 @@
+// Header Component Styles
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-index-header;
+  background-color: rgba($color-white, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all $transition-base $transition-ease;
+  
+  &--scrolled {
+    background-color: rgba($color-white, 0.95);
+    box-shadow: $shadow-sm;
+  }
+  
+  &__container {
+    border-bottom: 1px solid rgba($color-gray-200, 0.5);
+  }
+  
+  &__inner {
+    @include container;
+    @include flex-between;
+    height: 4rem;
+    
+    @include lg {
+      height: 5rem;
+    }
+  }
+  
+  // Left section with logo
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__mobile-menu-btn {
+    @include button-ghost;
+    padding: $spacing-sm;
+    margin-right: $spacing-md;
+    
+    @include lg {
+      display: none;
+    }
+  }
+  
+  &__menu-icon {
+    display: block;
+    
+    &--close {
+      display: none;
+    }
+    
+    .header--mobile-menu-open & {
+      &--open {
+        display: none;
+      }
+      
+      &--close {
+        display: block;
+      }
+    }
+  }
+  
+  &__logo {
+    &-link {
+      display: block;
+      text-decoration: none;
+    }
+    
+    &-image {
+      height: 2.5rem;
+      width: auto;
+      object-fit: contain;
+      
+      @include lg {
+        height: 3rem;
+      }
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-medium;
+    letter-spacing: 0.05em;
+    color: $color-warm-gray;
+    line-height: 1.2;
+    font-family: $font-primary;
+  }
+  
+  &__subtitle {
+    display: none;
+    font-size: $font-size-xs;
+    font-weight: $font-light;
+    letter-spacing: 0.1em;
+    color: $color-gray-500;
+    margin-top: 0.125rem;
+    
+    @include lg {
+      display: block;
+    }
+  }
+  
+  // Desktop navigation
+  &__nav {
+    &--desktop {
+      display: none;
+      
+      @include lg {
+        display: flex;
+        gap: $spacing-xl;
+      }
+    }
+  }
+  
+  &__nav-link {
+    font-size: $font-size-sm;
+    font-weight: $font-normal;
+    letter-spacing: 0.05em;
+    color: $color-warm-gray;
+    text-decoration: none;
+    transition: color $transition-base $transition-ease;
+    position: relative;
+    
+    &:hover {
+      color: $color-amber-700;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-amber-700;
+      transition: width $transition-base $transition-ease;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
+  }
+  
+  // Right section with icons
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    
+    @include lg {
+      gap: $spacing-lg;
+    }
+  }
+
+  // Language switcher
+  &__language {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    margin-right: $spacing-sm;
+    
+    @include sm {
+      margin-right: $spacing-md;
+    }
+  }
+  
+  &__icon-btn {
+    @include button-ghost;
+    padding: $spacing-sm;
+    color: $color-warm-gray;
+    position: relative;
+    
+    &:hover {
+      color: $color-amber-700;
+    }
+    
+    &--search,
+    &--user,
+    &--heart {
+      display: none;
+      
+      @include lg {
+        display: flex;
+      }
+    }
+  }
+  
+  &__cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: $border-radius-full;
+    background-color: $color-amber-600;
+    color: $color-white;
+    font-size: $font-size-xs;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $font-medium;
+  }
+  
+  // Mobile menu
+  &__mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $color-white;
+    border-bottom: 1px solid rgba($color-gray-200, 0.5);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $transition-base $transition-ease;
+    
+    @include lg {
+      display: none;
+    }
+    
+    &--open {
+      max-height: 500px;
+      box-shadow: $shadow-md;
+    }
+  }
+  
+  &__mobile-menu-inner {
+    padding: $spacing-lg $spacing-md;
+  }
+  
+  &__mobile-link {
+    display: block;
+    padding: $spacing-sm 0;
+    font-size: $font-size-sm;
+    font-weight: $font-normal;
+    letter-spacing: 0.05em;
+    color: $color-warm-gray;
+    text-decoration: none;
+    transition: color $transition-base $transition-ease;
+    
+    &:hover {
+      color: $color-amber-700;
+    }
+  }
+  
+  &__mobile-divider {
+    height: 1px;
+    background-color: rgba($color-gray-200, 0.5);
+    margin: $spacing-md 0;
+  }
+}
+
+// BEM utility modifiers
+.header {
+  &--transparent {
+    background-color: transparent;
+    
+    .header__container {
+      border-bottom-color: transparent;
+    }
+    
+    .header__title,
+    .header__nav-link,
+    .header__icon-btn {
+      color: $color-white;
+    }
+  }
+  
+  &--dark {
+    background-color: $color-warm-gray;
+    
+    .header__title,
+    .header__subtitle,
+    .header__nav-link,
+    .header__icon-btn {
+      color: $color-white;
+    }
+    
+    .header__nav-link:hover,
+    .header__icon-btn:hover {
+      color: $color-amber-600;
+    }
+  }
+}
+
+// Language switcher button styles
+.lang-btn {
+  background: none;
+  border: none;
+  padding: $spacing-xs;
+  font-size: $font-size-sm;
+  font-weight: $font-medium;
+  color: $color-gray-500;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewport='0 0 32 32' style='fill:black;font-size:20px;'><text y='70%'>🐾</text></svg>") 16 16, pointer;
+  transition: color $transition-base $transition-ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  &:hover {
+    color: $color-amber-700;
+  }
+  
+  &--active {
+    color: $color-warm-gray;
+    font-weight: $font-bold;
+  }
+}
+
+.lang-separator {
+  color: $color-gray-300;
+  font-size: $font-size-sm;
+  margin: 0 $spacing-xs;
+}

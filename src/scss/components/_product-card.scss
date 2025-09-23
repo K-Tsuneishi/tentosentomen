@@ -1,0 +1,333 @@
+// ProductCard Component Styles
+.product-card {
+  @include card;
+  cursor: pointer;
+  transition: all $transition-base $transition-ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+  
+  &--hovered {
+    .product-card__image {
+      transform: scale(1.05);
+    }
+    
+    .product-card__favorite-btn {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  &--favorited {
+    .product-card__favorite-btn {
+      opacity: 1;
+      
+      .product-card__heart-icon {
+        fill: $color-amber-600;
+        color: $color-amber-600;
+      }
+    }
+  }
+  
+  &--loading {
+    pointer-events: none;
+    
+    .product-card__content {
+      opacity: 0.6;
+    }
+    
+    .product-card__image {
+      opacity: 0.8;
+    }
+  }
+  
+  &--loaded {
+    .product-card__image {
+      opacity: 1;
+    }
+  }
+  
+  &--image-error {
+    .product-card__image {
+      filter: grayscale(1);
+      opacity: 0.5;
+    }
+  }
+  
+  &--adding-to-cart {
+    .product-card__cta-btn {
+      background-color: $color-green-700;
+      transform: scale(0.95);
+      
+      &::after {
+        content: '追加しました！';
+      }
+    }
+  }
+  
+  // Image container
+  &__image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background-color: $color-warm-beige;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow $transition-ease;
+    opacity: 0;
+    
+    &.loaded {
+      opacity: 1;
+    }
+  }
+  
+  // Favorite button
+  &__favorite-btn {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-full;
+    background-color: rgba($color-white, 0.9);
+    backdrop-filter: blur(10px);
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all $transition-base $transition-ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-sm;
+    
+    &:hover {
+      background-color: $color-white;
+      transform: scale(1.1);
+    }
+    
+    &--active {
+      opacity: 1;
+      transform: scale(1);
+      
+      .product-card__heart-icon {
+        fill: $color-amber-600;
+        color: $color-amber-600;
+      }
+    }
+    
+    &--animating {
+      animation: heartbeat 0.3s ease-in-out;
+    }
+  }
+  
+  &__heart-icon {
+    color: $color-warm-gray;
+    transition: all $transition-base $transition-ease;
+    fill: none;
+  }
+  
+  // Badge (for new/sale items)
+  &__badge {
+    position: absolute;
+    top: $spacing-md;
+    left: $spacing-md;
+    padding: $spacing-xs $spacing-sm;
+    background-color: $color-amber-600;
+    color: $color-white;
+    font-size: $font-size-xs;
+    font-weight: $font-medium;
+    letter-spacing: 0.05em;
+    border-radius: $border-radius-sm;
+    text-transform: uppercase;
+  }
+  
+  // Content section
+  &__content {
+    padding: $spacing-lg;
+    text-align: center;
+  }
+  
+  &__name {
+    font-size: $font-size-base;
+    font-weight: $font-medium;
+    color: $color-warm-gray;
+    margin-bottom: $spacing-sm;
+    line-height: 1.4;
+  }
+  
+  &__description {
+    font-size: $font-size-sm;
+    font-weight: $font-light;
+    color: $color-gray-600;
+    margin-bottom: $spacing-md;
+    line-height: 1.5;
+    @include line-clamp(2);
+  }
+  
+  &__price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+  }
+  
+  &__price {
+    font-size: $font-size-lg;
+    font-weight: $font-medium;
+    color: $color-amber-700;
+  }
+  
+  &__original-price {
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    text-decoration: line-through;
+  }
+  
+  &__cta-btn {
+    @include button-secondary;
+    width: 100%;
+    font-size: $font-size-sm;
+    padding: $spacing-sm $spacing-lg;
+    position: relative;
+    overflow: hidden;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewport='0 0 32 32' style='fill:black;font-size:20px;'><text y='70%'>🐾</text></svg>") 16 16, pointer;
+    
+    &:hover {
+      background-color: $color-amber-600;
+      color: $color-white;
+      border-color: $color-amber-600;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: left $transition-base $transition-ease;
+    }
+    
+    &:hover::after {
+      left: 100%;
+    }
+  }
+}
+
+// Animations
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+// Grid layout for product cards
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  justify-items: center;
+  
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-2xl;
+  }
+  
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Horizontal scroll for mobile
+.product-scroll {
+  display: flex;
+  gap: $spacing-lg;
+  overflow-x: auto;
+  padding: $spacing-md 0;
+  scroll-snap-type: x mandatory;
+  @include hide-scrollbar;
+  
+  .product-card {
+    flex-shrink: 0;
+    width: 280px;
+    scroll-snap-align: start;
+  }
+  
+  @include lg {
+    overflow-x: visible;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-2xl;
+    
+    .product-card {
+      width: auto;
+    }
+  }
+}
+
+// Loading skeleton
+.product-card-skeleton {
+  @include card;
+  width: 100%;
+  max-width: 400px;
+  
+  .skeleton-image {
+    @extend .skeleton;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  
+  .skeleton-title {
+    @extend .skeleton;
+    height: 20px;
+    width: 80%;
+    margin: $spacing-lg auto $spacing-sm;
+  }
+  
+  .skeleton-description {
+    @extend .skeleton;
+    height: 16px;
+    width: 90%;
+    margin: 0 auto $spacing-sm;
+  }
+  
+  .skeleton-price {
+    @extend .skeleton;
+    height: 18px;
+    width: 60px;
+    margin: $spacing-md auto $spacing-lg;
+  }
+  
+  .skeleton-button {
+    @extend .skeleton;
+    height: 40px;
+    width: 100%;
+    margin: 0 $spacing-lg $spacing-lg;
+    border-radius: $border-radius-full;
+  }
+}

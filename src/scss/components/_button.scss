@@ -1,0 +1,331 @@
+// Button Component Styles
+.btn {
+  @include button-base;
+  @include focus-ring;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewport='0 0 32 32' style='fill:black;font-size:20px;'><text y='70%'>🐾</text></svg>") 16 16, pointer;
+  
+  // Size variants
+  &--sm {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-xs;
+  }
+  
+  &--md {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+  
+  &--lg {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-base;
+  }
+  
+  &--xl {
+    padding: $spacing-lg $spacing-2xl;
+    font-size: $font-size-lg;
+  }
+  
+  // Style variants
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--secondary {
+    @include button-secondary;
+  }
+  
+  &--ghost {
+    @include button-ghost;
+  }
+  
+  &--outline {
+    background-color: transparent;
+    color: $color-warm-gray;
+    border: 1px solid $color-gray-300;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-warm-gray;
+      color: $color-white;
+      border-color: $color-warm-gray;
+    }
+  }
+  
+  &--link {
+    background-color: transparent;
+    color: $color-amber-700;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: underline;
+    
+    &:hover:not(:disabled) {
+      color: $color-amber-800;
+      background-color: transparent;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+  
+  // Color variants
+  &--amber {
+    background-color: $color-amber-600;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-amber-700;
+    }
+  }
+  
+  &--green {
+    background-color: $color-green-700;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: #03543F;
+    }
+  }
+  
+  &--gray {
+    background-color: $color-gray-600;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-gray-700;
+    }
+  }
+  
+  // Shape variants
+  &--rounded {
+    border-radius: $border-radius-md;
+  }
+  
+  &--square {
+    border-radius: 0;
+  }
+  
+  &--circle {
+    border-radius: $border-radius-full;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    
+    &.btn--sm {
+      width: 2rem;
+      height: 2rem;
+    }
+    
+    &.btn--lg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+  
+  // State variants
+  &--loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: btn-spin 0.8s linear infinite;
+    }
+  }
+  
+  &--success {
+    background-color: $color-green-700;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: #03543F;
+    }
+  }
+  
+  &--danger {
+    background-color: #DC2626;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: #B91C1C;
+    }
+  }
+  
+  &--warning {
+    background-color: #F59E0B;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: #D97706;
+    }
+  }
+  
+  // Full width
+  &--full {
+    width: 100%;
+  }
+  
+  // Icon buttons
+  &--icon {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+  
+  &--icon-only {
+    padding: $spacing-sm;
+    
+    &.btn--sm {
+      padding: $spacing-xs;
+    }
+    
+    &.btn--lg {
+      padding: $spacing-md;
+    }
+  }
+  
+  // Animation effects
+  &--bounce {
+    &:hover:not(:disabled) {
+      animation: btn-bounce 0.3s ease-in-out;
+    }
+  }
+  
+  &--pulse {
+    &:hover:not(:disabled) {
+      animation: btn-pulse 0.5s ease-in-out;
+    }
+  }
+  
+  &--slide {
+    overflow: hidden;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: left $transition-base $transition-ease;
+    }
+    
+    &:hover:not(:disabled)::before {
+      left: 100%;
+    }
+  }
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  gap: $spacing-xs;
+  
+  &--attached {
+    gap: 0;
+    
+    .btn {
+      border-radius: 0;
+      border-right-width: 0;
+      
+      &:first-child {
+        border-top-left-radius: $border-radius-full;
+        border-bottom-left-radius: $border-radius-full;
+      }
+      
+      &:last-child {
+        border-top-right-radius: $border-radius-full;
+        border-bottom-right-radius: $border-radius-full;
+        border-right-width: 1px;
+      }
+    }
+  }
+  
+  &--vertical {
+    flex-direction: column;
+    
+    &.btn-group--attached {
+      .btn {
+        border-bottom-width: 0;
+        border-right-width: 1px;
+        
+        &:first-child {
+          border-radius: $border-radius-full $border-radius-full 0 0;
+        }
+        
+        &:last-child {
+          border-radius: 0 0 $border-radius-full $border-radius-full;
+          border-bottom-width: 1px;
+        }
+      }
+    }
+  }
+}
+
+// Button animations
+@keyframes btn-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes btn-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes btn-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Floating action button
+.fab {
+  @extend .btn;
+  @extend .btn--primary;
+  @extend .btn--circle;
+  position: fixed;
+  bottom: $spacing-2xl;
+  right: $spacing-2xl;
+  z-index: $z-index-dropdown;
+  width: 3.5rem;
+  height: 3.5rem;
+  box-shadow: $shadow-lg;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba($color-amber-600, 0.3);
+  }
+  
+  @include sm {
+    bottom: $spacing-3xl;
+    right: $spacing-3xl;
+  }
+}

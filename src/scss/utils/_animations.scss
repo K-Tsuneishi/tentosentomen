@@ -1,0 +1,258 @@
+// Keyframe animations
+@keyframes gentle-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes paw-bounce {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(0.9);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+// Animation utility classes
+.animate-gentle-fade {
+  animation: gentle-fade 0.8s $transition-ease both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s $transition-ease both;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s $transition-ease both;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.6s $transition-ease both;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.5s $transition-ease both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s $transition-ease both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s $transition-ease both;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+// Staggered animation delays
+@for $i from 1 through 10 {
+  .animate-delay-#{$i * 100} {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+
+// Hover animations
+.hover-scale {
+  transition: transform $transition-base $transition-ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.hover-lift {
+  transition: all $transition-base $transition-ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.hover-grow {
+  transition: transform $transition-base $transition-ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.hover-shrink {
+  transition: transform $transition-base $transition-ease;
+  
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.hover-rotate {
+  transition: transform $transition-base $transition-ease;
+  
+  &:hover {
+    transform: rotate(5deg);
+  }
+}
+
+// Loading skeleton animation
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-gray-200;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+}
+
+// Transition utilities
+.transition-all {
+  transition: all $transition-base $transition-ease;
+}
+
+.transition-colors {
+  transition: background-color $transition-base $transition-ease,
+              border-color $transition-base $transition-ease,
+              color $transition-base $transition-ease;
+}
+
+.transition-opacity {
+  transition: opacity $transition-base $transition-ease;
+}
+
+.transition-transform {
+  transition: transform $transition-base $transition-ease;
+}
+
+.transition-none {
+  transition: none;
+}
