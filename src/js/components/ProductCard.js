@@ -35,10 +35,13 @@ export class ProductCard {
         <div class="product-card__content">
           <h3 class="product-card__name">${this.product.name}</h3>
           <p class="product-card__description">${this.product.description}</p>
+          <!-- Price hidden for now -->
+          <!--
           <div class="product-card__price-row">
             <span class="product-card__price">${this.product.price}</span>
             ${this.product.originalPrice ? `<span class="product-card__original-price">${this.product.originalPrice}</span>` : ''}
           </div>
+          -->
           <button class="product-card__cta-btn">${this.i18n.t('products.viewDetails')}</button>
         </div>
       </div>

@@ -175,12 +175,14 @@
     @include line-clamp(2);
   }
   
+  // Price hidden for now
   &__price-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $spacing-sm;
-    margin-bottom: $spacing-lg;
+    display: none; // Hidden until pricing is finalized
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // gap: $spacing-sm;
+    // margin-bottom: $spacing-lg;
   }
   
   &__price {
