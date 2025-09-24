@@ -160,7 +160,7 @@ export class HomePage {
         name: this.i18n.t('products.laFrance'), 
         price: this.i18n.formatPrice(4400), 
         description: this.i18n.t('products.laFranceDesc'),
-        image: product3Image,
+        image: product1Image,
         isFavorited: false
       },
       { 
@@ -177,7 +177,7 @@ export class HomePage {
         name: this.i18n.t('products.placemat'), 
         price: this.i18n.formatPrice(7800), 
         description: this.i18n.t('products.placematDesc'),
-        image: product1Image,
+        image: product3Image,
         isFavorited: false
       }
     ];
