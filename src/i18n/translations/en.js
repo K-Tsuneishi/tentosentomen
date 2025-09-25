@@ -21,8 +21,8 @@ export default {
     "favorites": "Favorites"
   },
   "hero": {
-    "title": "Diversity creates your \"favorite\"",
-    "subtitle": "We want you to pursue your \"favorites\" regardless of disability or changes of the times",
+    "title": "Interesting because we're different,<br>Connected because we're the same",
+    "subtitle": "This is the origin of our \"ten to sen to men\" craftsmanship.",
     "cta": "View Collection"
   },
   "products": {
@@ -93,7 +93,7 @@ export default {
     "workshop": "Workshop",
     "connect": "Connect",
     "instagram": "Instagram",
-    "copyright": "© 2025 Points, Lines and Planes All rights reserved.",
+    "copyright": "© 2025 ten to sen to men All rights reserved.",
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
     "commerceLaw": "Commercial Transaction Law"

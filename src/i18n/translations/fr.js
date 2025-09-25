@@ -21,8 +21,8 @@ export default {
     "favorites": "Favoris"
   },
   "hero": {
-    "title": "La diversité crée votre \"préféré\"",
-    "subtitle": "Nous voulons que vous poursuiviez vos \"préférés\" sans égard au handicap ou aux changements d'époque",
+    "title": "Intéressant parce que nous sommes différents,<br>Connectés parce que nous sommes pareils",
+    "subtitle": "C'est l'origine de notre artisanat \"ten to sen to men\".",
     "cta": "Voir la collection"
   },
   "products": {
@@ -93,7 +93,7 @@ export default {
     "workshop": "Atelier",
     "connect": "Se connecter",
     "instagram": "Instagram",
-    "copyright": "© 2025 Points, Lignes et Plans Tous droits réservés.",
+    "copyright": "© 2025 ten to sen to men Tous droits réservés.",
     "terms": "Conditions d'utilisation",
     "privacy": "Politique de confidentialité",
     "commerceLaw": "Loi sur les transactions commerciales"
